@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo page</title>
+<!--    add the style-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container" >
+      <h1>ToDo list</h1>
+      <!--/*@thymesVar id="name" type="java.lang.String"*/-->
+      <p th:text="'Hello ' + ${name}">  </p>
+      <hr>
+      <table class="table" >
+        <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Done</th>
+            <th>Target Date</th>
+        </tr>
+        <tr th:each="todo : ${todoList}">
+            <!--/*@thymesVar id="todo" type="edmond.repository.ToDo"*/-->
+            <td th:text="${todo.id}">  </td>
+            <td th:text="${todo.description}">  </td>
+            <td th:text="${todo.done}">  </td>
+            <td th:text="${todo.targetDate}">  </td>
+        </tr>
+      </table>
+      <a href="/add-todo" class="btn btn-success" > Add todo </a>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

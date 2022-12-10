@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add to-do page</title>
+</head>
+<body>
+  <div class="container">
+        <h1>Add to-do page</h1>
+        <form action="/add-todo" method="post"  >
+            <div>
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" required="required">
+            </div>
+            <div>
+                <label for="targetDate">Target date</label>
+                <input type="hidden" id="targetDate" name="targetDate">
+            </div>
+            <div>
+                <label for="isDone">Is done</label>
+                <input type="hidden" id="isDone" name="isDone">
+            </div>
+            <div>
+                <label for="user">User</label>
+                <input type="hidden" id="user" name="user">
+            </div>
+            <div>
+                <label for="id">id</label>
+                <input type="hidden" id="id" name="id">
+            </div>
+
+            <button type="submit">Add</button>
+        </form>
+<!--      add a message if description  length is not valid-->
+        <div th:if="${error}">
+            <p style="color: red" th:text="${error}" ></p>
+        </div>
+
+
+
+  </div>
+
+
+</body>
+</html>
